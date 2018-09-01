@@ -46,9 +46,9 @@ const getBlockDiff = (old, current) => {
   const { added, removed, changed } = diffsByKey;
 
   const diffSummary = {
-    changed: pick(old, changed),
-    added: pick(current, added),
-    removed: pick(old, removed)
+    changed: pick(old, changed), // previous version
+    added: pick(current, added), // what was added to old version
+    removed: pick(old, removed)  // what was removed from old version 
   }
 
   return omitBy(diffSummary, isEmpty);
